@@ -37,14 +37,14 @@ async def homepage(request):
 @app.route('/login')
 async def login(request):
     redirect_uri = request.url_for('auth')
-    return await oauth.google.authorize_redirect(redirect_uri)
+    return await oauth.google.authorize_redirect(request, redirect_uri)
 
 
 @app.route('/auth')
 async def auth(request):
-    token = await oauth.google.authorize_access_token()
-    user = oauth.google.parse_id_token(token)
-    request.session['user'] = user
+    token = await oauth.google.authorize_access_token(request)
+    user = await oauth.google.parse_id_token(request, token)
+    request.session['user'] = dict(user)
     return RedirectResponse(url='/')
 
 

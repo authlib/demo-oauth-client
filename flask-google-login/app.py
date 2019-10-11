@@ -4,7 +4,7 @@ from authlib.integrations.flask_client import OAuth
 
 
 app = Flask(__name__)
-app.secret = '!secret'
+app.secret_key = '!secret'
 app.config.from_object('config')
 
 CONF_URL = 'https://accounts.google.com/.well-known/openid-configuration'
