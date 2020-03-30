@@ -3,6 +3,7 @@
 Create your Google OAuth Client and fill the client ID and secret
 into `config.py`, then run:
 
+    $ export FLASK_APP=app.py
     $ flask run
 
 When register your Google OAuth Client, remember to put:
