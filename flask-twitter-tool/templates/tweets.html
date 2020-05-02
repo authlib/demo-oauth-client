@@ -1,0 +1,18 @@
+<style>
+  pre { max-width: 100%; overflow: scroll; }
+</style>
+<ul>
+  {% for tweet in tweets %}
+  <li>
+    <pre><code>{{ tweet|tojson }}</code></pre>
+    <span>{{ tweet.id }}</span>
+    <span>{{ tweet.created_at }}</span>
+    <p>{{ tweet.text }}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% if tweets %}
+
+{% set last_tweet = tweets[-1] %}
+<a href="?prev={{ last_tweet.id }}">next page</a>
+{% endif %}

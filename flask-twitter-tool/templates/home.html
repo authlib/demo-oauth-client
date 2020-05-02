@@ -1,0 +1,14 @@
+<style>
+  pre { max-width: 100%; overflow: scroll; }
+</style>
+{% if user %}
+<div>
+  <span>{{ user.id }}</span>
+  <span>{{ user.name }}</span>
+  <strong>@{{ user.screen_name }}</strong>
+</div>
+<a href="/tweets">tweets</a>
+<a href="/logout">logout</a>
+{% else %}
+<a href="/login">login</a>
+{% endif %}
