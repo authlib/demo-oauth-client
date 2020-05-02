@@ -1,0 +1,9 @@
+{% if user %}
+<pre>
+{{ user }}
+</pre>
+<hr>
+<a href="/logout/">logout</a>
+{% else %}
+<a href="/login/">login</a>
+{% endif %}

@@ -1,3 +1,4 @@
 *.sqlite
+*.sqlite3
 *.pyc
 *.env
