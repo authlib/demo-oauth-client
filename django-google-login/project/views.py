@@ -14,7 +14,6 @@ oauth.register(
 )
 
 
-
 def home(request):
     user = request.session.get('user')
     if user:
@@ -34,6 +33,6 @@ def auth(request):
     return redirect('/')
 
 
-def logout():
+def logout(request):
     request.session.pop('user', None)
     return redirect('/')
