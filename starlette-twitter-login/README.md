@@ -1,4 +1,4 @@
-# Twitter login demo with FastAPI
+# Twitter login demo with Starlette
 
 First, copy `.env.sample` to `.env`:
 
