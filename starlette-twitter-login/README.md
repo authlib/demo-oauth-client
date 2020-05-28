@@ -9,8 +9,8 @@ into `.env`, then run:
 
     $ python app.py
 
-When register your Twitter OAuth Client, remember to put:
+When registering your Twitter OAuth Client, remember to put:
 
-    http://127.0.0.1:5000/
+    http://127.0.0.1:5000/auth
 
-into the client redirect uris list.
+into the "Callback URL" list.
