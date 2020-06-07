@@ -1,0 +1,8 @@
+{% if user %}
+<p>Here is the userinfo data:</p>
+<pre><code>{{ user|tojson }}</code></pre>
+<a href="/logout">logout</a>
+{% else %}
+<a href="/login/twitter">twitter login</a>
+<a href="/login/google">google login</a>
+{% endif %}
