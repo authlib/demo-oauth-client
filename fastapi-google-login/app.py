@@ -22,7 +22,7 @@ oauth.register(
 )
 
 
-@app.route('/')
+@app.get('/')
 async def homepage(request: Request):
     user = request.session.get('user')
     if user:
@@ -35,13 +35,13 @@ async def homepage(request: Request):
     return HTMLResponse('<a href="/login">login</a>')
 
 
-@app.route('/login')
+@app.get('/login')
 async def login(request: Request):
     redirect_uri = request.url_for('auth')
     return await oauth.google.authorize_redirect(request, redirect_uri)
 
 
-@app.route('/auth')
+@app.get('/auth')
 async def auth(request: Request):
     try:
         token = await oauth.google.authorize_access_token(request)
@@ -52,7 +52,7 @@ async def auth(request: Request):
     return RedirectResponse(url='/')
 
 
-@app.route('/logout')
+@app.get('/logout')
 async def logout(request: Request):
     request.session.pop('user', None)
     return RedirectResponse(url='/')
