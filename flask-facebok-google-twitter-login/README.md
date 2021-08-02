@@ -21,6 +21,8 @@ Add `http://localhost:5000/twitter/auth/` into Authorized redirect URIs.
 Facebook:
 Create your Facebook OAuth Client at <https://developer.facebook.com/>, by creating a app.
 Add `http://localhost:5000/facebook/auth/` into Authorized redirect URIs.
+
+Make sure you enter the key and secret for every provider in the app.py or use them as a environment variable
 ## Run
 
 Start server with:
