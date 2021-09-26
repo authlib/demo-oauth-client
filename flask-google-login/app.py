@@ -33,8 +33,9 @@ def login():
 @app.route('/auth')
 def auth():
     token = oauth.google.authorize_access_token()
-    user = oauth.google.parse_id_token(token)
-    session['user'] = user
+    user = token.get('userinfo')
+    if user:
+        session['user'] = user
     return redirect('/')
 
 

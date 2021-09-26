@@ -43,8 +43,9 @@ async def login(request):
 @app.route('/auth')
 async def auth(request):
     token = await oauth.google.authorize_access_token(request)
-    user = await oauth.google.parse_id_token(request, token)
-    request.session['user'] = dict(user)
+    user = token.get('userinfo')
+    if user:
+        request.session['user'] = user
     return RedirectResponse(url='/')
 
 
