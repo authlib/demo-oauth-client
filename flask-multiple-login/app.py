@@ -70,9 +70,8 @@ def auth(name):
         abort(404)
 
     token = client.authorize_access_token()
-    if 'id_token' in token:
-        user = client.parse_id_token(token)
-    else:
+    user = token.get('userinfo')
+    if not user:
         user = client.userinfo()
 
     session['user'] = user

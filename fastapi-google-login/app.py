@@ -47,8 +47,9 @@ async def auth(request: Request):
         token = await oauth.google.authorize_access_token(request)
     except OAuthError as error:
         return HTMLResponse(f'<h1>{error.error}</h1>')
-    user = await oauth.google.parse_id_token(request, token)
-    request.session['user'] = dict(user)
+    user = token.get('userinfo')
+    if user:
+        request.session['user'] = dict(user)
     return RedirectResponse(url='/')
 
 
