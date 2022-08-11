@@ -11,6 +11,6 @@ into `.env`, then run:
 
 When register your Google OAuth Client, remember to put:
 
-    http://127.0.0.1:8000/
+    http://127.0.0.1:8000/auth
 
 into the client redirect uris list.
