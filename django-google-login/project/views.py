@@ -28,8 +28,7 @@ def login(request):
 
 def auth(request):
     token = oauth.google.authorize_access_token(request)
-    user = oauth.google.parse_id_token(request, token)
-    request.session['user'] = user
+    request.session['user'] = token['userinfo']
     return redirect('/')
 
 
